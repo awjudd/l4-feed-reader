@@ -1,0 +1,22 @@
+{
+    "name": "awjudd/feed-reader",
+    "description": "A simple RSS feed reader for Laravel 4.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Judd",
+            "email": "contact@andrewjudd.ca"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.x",
+        "simplepie/simplepie": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Awjudd\\FeedReader": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
