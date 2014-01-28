@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @see \Illuminate\View\Environment
  */
-class FeedReaderFacade extends Facade {
+class FeedReader extends Facade {
 
     /**
      * Get the registered name of the component.

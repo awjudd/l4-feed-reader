@@ -28,8 +28,20 @@ class FeedReaderServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		// Register any bindings
+		$this->registerBindings();
 	}
+
+	/**
+     * Register the application bindings that are required.
+     */
+    private function registerBindings()
+    {
+        // Bind to the "Asset" section
+        $this->app->bind('feedreader', function() {
+            return new FeedReader();
+        });
+    }
 
 	/**
 	 * Get the services provided by the provider.
