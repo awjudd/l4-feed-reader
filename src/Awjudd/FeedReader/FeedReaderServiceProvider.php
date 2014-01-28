@@ -12,6 +12,16 @@ class FeedReaderServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
 	/**
+     * Bootstrap the service provider.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->package('awjudd/feedreader');
+    }
+
+	/**
 	 * Register the service provider.
 	 *
 	 * @return void
@@ -28,7 +38,7 @@ class FeedReaderServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('feedreader');
 	}
 
 }
