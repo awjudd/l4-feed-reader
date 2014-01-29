@@ -28,7 +28,7 @@ return array(
                  * 
                  * @var boolean
                  */
-                'enabled' => false,
+                'enabled' => true,
 
                 /**
                  * The folder in the "storage"
