@@ -1,5 +1,11 @@
 <?php
 return array(
+
+    /**
+     * An array of any of the configuration profiles that the developer may want.
+     * 
+     * @var array
+     */
     'profiles' => array(
 
         /**
@@ -44,7 +50,14 @@ return array(
              * 
              * @var boolean
              */
-            'force_feed' => false,
+            'force-feed' => false,
+
+            /**
+             * Whether or not the RSS feed should have it's output ordered by date.
+             * 
+             * @var boolean
+             */
+            'order-by-date' => false,
         ),
     ),
 );

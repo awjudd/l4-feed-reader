@@ -32,6 +32,9 @@ class FeedReader
         // Whether or not to force the feed reading
         $sp->force_feed($this->read_config($configuration, 'force-feed', false));
 
+        // Should we be ordering the feed by date?
+        $sp->enable_order_by_date($this->read_config($configuration, 'order-by-date', false));
+
         // Set the feed URL
         $sp->set_feed_url($url);
 
