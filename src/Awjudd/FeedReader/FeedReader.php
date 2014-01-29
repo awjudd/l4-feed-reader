@@ -13,7 +13,7 @@ class FeedReader
     public function read($url, $configuration = 'default')
     {
         // Setup the object
-        $sp = new SimplePie;
+        $sp = new SimplePie();
 
         // Configure it
         if($cache = $this->setup_cache_directory($configuration))
@@ -31,6 +31,9 @@ class FeedReader
         
         // Whether or not to force the feed reading
         $sp->force_feed($this->read_config($configuration, 'force-feed', false));
+
+        // Set the feed URL
+        $sp->set_feed_url($url);
 
         // Grab it
         $sp->init();
