@@ -5,43 +5,85 @@ use SimplePie;
 
 class FeedReader
 {
-    private $cache_location = null;
-
-    public function __construct()
-    {
-        $this->cache_location = storage_path() . DIRECTORY_SEPARATOR . Config::get('feedreader::cache.location', 'rss-feeds') . DIRECTORY_SEPARATOR;
-
-        // Check if the folder is available
-        if(!file_exists($this->cache_location))
-        {
-            // It didn't, so make it
-            mkdir($this->cache_location, 0777);
-
-            // Also add in a .gitignore file
-            file_put_contents($this->cache_location . '.gitignore', '!.gitignore' . PHP_EOL . '*');
-        }
-    }
-
     /**
      * Used to parse an RSS feed.
      * 
      * @return SimplePie
      */
-    public function read($url, $enable_cache = false, $force_feed = false)
+    public function read($url, $configuration = 'default')
     {
         // Setup the object
         $sp = new SimplePie;
 
         // Configure it
-        $sp->set_feed_url($url);
-        $sp->enable_cache($enable_cache);
-        $sp->force_feed($force_feed);
-        $sp->set_cache_location($this->cache_location);
+        if($cache = $this->setup_cache_directory($configuration))
+        {
+            // Enable caching, and set the folder
+            $sp->enable_cache(true);
+            $sp->set_cache_location($cache);
+            $sp->set_cache_duration($configuration, 'cache.duration', 3600);
+        }
+        else
+        {
+            // Disable caching
+            $sp->enable_cache(false);
+        }
+        
+        // Whether or not to force the feed reading
+        $sp->force_feed($this->read_config($configuration, 'force-feed', false));
 
         // Grab it
         $sp->init();
 
         // We are done, so return it
         return $sp;
+    }
+
+    /**
+     * Used in order to setup the cache directory for future use.
+     * 
+     * @param string The configuration to use
+     * @return string The folder that is being cached to
+     */
+    private function setup_cache_directory($configuration)
+    {
+        // Check if caching is enabled
+        $cache_enabled = $this->read_config($configuration, 'cache.enabled', false);
+
+        // Is caching enabled?
+        if(!$cache_enabled)
+        {
+            // It is disabled, so skip it
+            return false;
+        }
+
+        // Grab the cache location
+        $cache_location = storage_path($this->read_config($configuration, 'cache.location', 'rss-feeds'));
+
+        // Check if the folder is available
+        if(!file_exists($cache_location))
+        {
+            // It didn't, so make it
+            mkdir($cache_location, 0777);
+
+            // Also add in a .gitignore file
+            file_put_contents($cache_location . '.gitignore', '!.gitignore' . PHP_EOL . '*');
+        }
+
+        return $cache_location;
+    }
+
+    /**
+     * Used internally in order to retrieve a sepcific value from the configuration
+     * file.
+     * 
+     * @param string $configuration The name of the configuration to use
+     * @param string $name The name of the value in the configuration file to retrieve
+     * @param mixed $default The default value
+     * @return mixed
+     */
+    private function read_config($configuration, $name, $default)
+    {
+        return Config::get('feedreader::' . $configuration . '.' . $name, $default);
     }
 }
