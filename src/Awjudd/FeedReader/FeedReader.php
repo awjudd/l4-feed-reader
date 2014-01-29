@@ -16,7 +16,7 @@ class FeedReader
         $sp = new SimplePie();
 
         // Configure it
-        if($cache = $this->setup_cache_directory($configuration))
+        if(($cache = $this->setup_cache_directory($configuration)) !== false)
         {
             // Enable caching, and set the folder
             $sp->enable_cache(true);
@@ -87,6 +87,6 @@ class FeedReader
      */
     private function read_config($configuration, $name, $default)
     {
-        return Config::get('feedreader::' . $configuration . '.' . $name, $default);
+        return Config::get('feedreader::profiles.' . $configuration . '.' . $name, $default);
     }
 }
