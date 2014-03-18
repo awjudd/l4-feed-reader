@@ -66,6 +66,13 @@ class FeedReader
         // Grab the cache location
         $cache_location = storage_path($this->read_config($configuration, 'cache.location', 'rss-feeds'));
 
+        // Is the last character a slash?
+        if(substr($cache_location, -1) != DIRECTORY_SEPARATOR)
+        {
+            // Add in the slash at the end
+            $cache_location .= DIRECTORY_SEPARATOR;
+        }
+
         // Check if the folder is available
         if(!file_exists($cache_location))
         {
