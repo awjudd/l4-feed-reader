@@ -21,7 +21,7 @@ class FeedReader
             // Enable caching, and set the folder
             $sp->enable_cache(true);
             $sp->set_cache_location($cache);
-            $sp->set_cache_duration($configuration, 'cache.duration', 3600);
+            $sp->set_cache_duration($this->read_config($configuration, 'cache.duration', 3600));
         }
         else
         {
