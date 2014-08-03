@@ -1,7 +1,7 @@
-Laravel 4 - Feed Reader
+Laravel 4.2 - Feed Reader
 ===============
 
-A simple RSS feed reader for **Laravel 4.1**
+A simple RSS feed reader for **Laravel 4.2**
 
 ## Features
 
