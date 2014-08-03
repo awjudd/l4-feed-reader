@@ -97,6 +97,6 @@ class FeedReader
      */
     private function read_config($configuration, $name, $default)
     {
-        return Config::get('feedreader::profiles.' . $configuration . '.' . $name, $default);
+        return Config::get('feed-reader::profiles.' . $configuration . '.' . $name, $default);
     }
 }

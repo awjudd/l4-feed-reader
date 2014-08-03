@@ -18,7 +18,7 @@ class FeedReaderServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('awjudd/feedreader');
+        $this->package('awjudd/feed-reader');
     }
 
 	/**
@@ -50,7 +50,7 @@ class FeedReaderServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('feedreader');
+		return array('feed-reader');
 	}
 
 }
