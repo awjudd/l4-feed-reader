@@ -8,7 +8,7 @@ class FeedReader
     /**
      * Used to parse an RSS feed.
      * 
-     * @return SimplePie
+     * @return \SimplePie
      */
     public function read($url, $configuration = 'default')
     {
