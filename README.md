@@ -10,21 +10,10 @@ A simple RSS feed reader for **Laravel 4.2**
 
 ## Quick Start
 
-Just before the `require` key of `composer.json` file add the following:
+In the `require` key of `composer.json` file add the following:
 
 ```
-"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/tonioriol/l4-feed-reader"
-		}
-	],
-```
-
-Require this package with composer using the following command:
-
-```
-composer require tr0n/feed-reader
+"awjudd/feed-reader": "1.1.*"
 ```
 
 Run the Composer update command
