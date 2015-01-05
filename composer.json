@@ -1,11 +1,15 @@
 {
-	"name": "awjudd/feed-reader",
+	"name": "tr0n/feed-reader",
 	"description": "A simple RSS feed reader for Laravel 4.2",
 	"license": "MIT",
 	"authors": [
 		{
 			"name": "Andrew Judd",
 			"email": "contact@andrewjudd.ca"
+		},
+		{
+			"name": "Toni Oriol",
+			"email": "tonioriol@gmail.com"
 		}
 	],
 	"require": {
