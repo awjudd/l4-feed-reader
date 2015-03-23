@@ -1,7 +1,7 @@
 Laravel 4.2 - Feed Reader
 ===============
 
-A simple RSS feed reader for **Laravel 4.2**
+A simple RSS feed reader for **Laravel 5.0**
 
 ## Features
 
@@ -22,7 +22,7 @@ Run the Composer update command
 $ composer update
 ```
 
-In your `config/app.php` add `'Awjudd\Layoutview\LayoutviewServiceProvider'` to the end of the `$providers` array
+In your `config/app.php` add `'Awjudd\FeedReader\FeedReaderServiceProvider'` to the end of the `$providers` array
 
 ```php
 'providers' => array(

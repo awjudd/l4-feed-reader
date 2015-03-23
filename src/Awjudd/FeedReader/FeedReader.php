@@ -1,4 +1,10 @@
 <?php namespace Awjudd\FeedReader;
+/**
+ * @Author: Andrew Judd
+ * @Date:   2015-03-22 22:16:19
+ * @Last Modified by:   Andrew Judd
+ * @Last Modified time: 2015-03-22 22:25:59
+ */
 
 use Config;
 use SimplePie;
@@ -97,6 +103,6 @@ class FeedReader
      */
     private function read_config($configuration, $name, $default)
     {
-        return Config::get('feed-reader::profiles.' . $configuration . '.' . $name, $default);
+        return Config::get('feed-reader::config.profiles.' . $configuration . '.' . $name, $default);
     }
 }
