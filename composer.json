@@ -1,6 +1,6 @@
 {
     "name": "awjudd/feed-reader",
-    "description": "A simple RSS feed reader for Laravel 4.1",
+    "description": "A simple RSS feed reader for Laravel 5",
     "license": "MIT",
     "authors": [
         {
@@ -9,9 +9,9 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.4.0",
         "illuminate/support": "~5",
-        "simplepie/simplepie": "master"
+        "simplepie/simplepie": "dev-master"
     },
     "autoload": {
         "psr-0": {
