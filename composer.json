@@ -10,8 +10,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/support": "4.2.x",
-        "simplepie/simplepie": "dev-master"
+        "illuminate/support": "~5",
+        "simplepie/simplepie": "master"
     },
     "autoload": {
         "psr-0": {
