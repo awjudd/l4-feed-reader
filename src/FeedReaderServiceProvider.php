@@ -20,7 +20,7 @@ class FeedReaderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('rss-feed-reader', AssetProcessor::class);
+        $this->app->singleton('rss-feed-reader', FeedReader::class);
     }
 
     /**
