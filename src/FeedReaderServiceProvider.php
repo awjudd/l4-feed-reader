@@ -1,10 +1,6 @@
-<?php namespace Awjudd\FeedReader;
-/**
- * @Author: Andrew Judd
- * @Date:   2015-03-22 22:16:19
- * @Last Modified by:   Andrew Judd
- * @Last Modified time: 2015-03-22 22:22:37
- */
+<?php
+
+namespace Awjudd\FeedReader;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -24,7 +20,7 @@ class FeedReaderServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('feed-reader', AssetProcessor::class);
+        $this->app->singleton('rss-feed-reader', AssetProcessor::class);
     }
 
     /**
@@ -39,7 +35,7 @@ class FeedReaderServiceProvider extends ServiceProvider
 
     private function setupProcessor()
     {
-        $this->app->singleton(AssetProcessor::class);
+        $this->app->singleton(FeedReader::class);
     }
 
 }

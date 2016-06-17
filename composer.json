@@ -9,13 +9,13 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.5.9",
         "illuminate/support": "~5",
         "simplepie/simplepie": "~1.4"
     },
     "autoload": {
-        "psr-0": {
-            "Awjudd\\FeedReader": "src/"
+        "psr-4": {
+            "Awjudd\\FeedReader\\": "src/"
         }
     },
     "minimum-stability": "dev"
