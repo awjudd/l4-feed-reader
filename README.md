@@ -13,7 +13,7 @@ A simple RSS feed reader for **Laravel 5**
 In the `require` key of `composer.json` file add the following:
 
 ```
-"awjudd/feed-reader": "1.2.*"
+"awjudd/feed-reader": "1.3.*"
 ```
 
 Run the Composer update command
@@ -39,7 +39,7 @@ In your `config/app.php` add `'Awjudd\FeedReader\FeedReaderServiceProvider'` to 
     'App'             => 'Illuminate\Support\Facades\App',
     'Artisan'         => 'Illuminate\Support\Facades\Artisan',
     ...
-    'FeedReader'      => 'Awjudd\FeedReader\Facades\FeedReader',
+    'FeedReader'      => 'Awjudd\FeedReader\Facades',
 ),
 ```
 
@@ -50,12 +50,12 @@ In your `config/app.php` add `'Awjudd\FeedReader\FeedReaderServiceProvider'` to 
 After installing through composer, you should publish the config file.  To do this, run the following command:
 
 ```
-$ php artisan config:publish awjudd/feed-reader
+$ php artisan vendor:publish
 ```
 
 ### Configuration Values
 
-Once published, the configuration file contains an array of profiles.  These will define how the RSS feed reader will react.  By default the "default" profile will used.  For more information on: [here]http://simplepie.org/wiki/reference/simplepie/start.
+Once published, the configuration file contains an array of profiles.  These will define how the RSS feed reader will react.  By default the "default" profile will used.  For more information on: [here](http://simplepie.org/wiki/reference/simplepie/start).
 
 ### How to use
 
