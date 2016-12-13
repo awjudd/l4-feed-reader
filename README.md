@@ -39,7 +39,7 @@ In your `config/app.php` add `'Awjudd\FeedReader\FeedReaderServiceProvider'` to 
     'App'             => 'Illuminate\Support\Facades\App',
     'Artisan'         => 'Illuminate\Support\Facades\Artisan',
     ...
-    'FeedReader'      => 'Awjudd\FeedReader\Facades',
+    'FeedReader'      => 'Awjudd\FeedReader\Facades\FeedReader',
 ),
 ```
 
