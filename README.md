@@ -26,20 +26,18 @@ In your `config/app.php` add `'Awjudd\FeedReader\FeedReaderServiceProvider'` to 
 
 ```php
 'providers' => array(
-
-    'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-    'Illuminate\Auth\AuthServiceProvider',
+    Illuminate\Auth\AuthServiceProvider::class,
+    Illuminate\Broadcasting\BroadcastServiceProvider::class,
     ...
-    'Awjudd\FeedReader\FeedReaderServiceProvider',
+    Awjudd\FeedReader\FeedReaderServiceProvider::class,
 
 ),
 
 'aliases' => array(
-
-    'App'             => 'Illuminate\Support\Facades\App',
-    'Artisan'         => 'Illuminate\Support\Facades\Artisan',
+    'App' => Illuminate\Support\Facades\App::class,
+    'Artisan' => Illuminate\Support\Facades\Artisan::class,
     ...
-    'FeedReader'      => 'Awjudd\FeedReader\Facades\FeedReader',
+    'FeedReader' => Awjudd\FeedReader\Facade::class,
 ),
 ```
 
