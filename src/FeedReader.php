@@ -1,4 +1,5 @@
 <?php namespace Awjudd\FeedReader;
+
 /**
  * @Author: Andrew Judd
  * @Date:   2015-03-22 22:16:19
@@ -13,7 +14,7 @@ class FeedReader
 {
     /**
      * Used to parse an RSS feed.
-     * 
+     *
      * @return \SimplePie
      */
     public function read($url, $configuration = 'default')
@@ -22,15 +23,12 @@ class FeedReader
         $sp = new SimplePie();
 
         // Configure it
-        if(($cache = $this->setup_cache_directory($configuration)) !== false)
-        {
-            // Enable caching, and set the folder
+        if (($cache = $this->setup_cache_directory($configuration)) !== false) {
+        // Enable caching, and set the folder
             $sp->enable_cache(true);
             $sp->set_cache_location($cache);
             $sp->set_cache_duration($this->read_config($configuration, 'cache.duration', 3600));
-        }
-        else
-        {
+        } else {
             // Disable caching
             $sp->enable_cache(false);
         }
@@ -53,7 +51,7 @@ class FeedReader
 
     /**
      * Used in order to setup the cache directory for future use.
-     * 
+     *
      * @param string The configuration to use
      * @return string The folder that is being cached to
      */
@@ -63,9 +61,8 @@ class FeedReader
         $cache_enabled = $this->read_config($configuration, 'cache.enabled', false);
 
         // Is caching enabled?
-        if(!$cache_enabled)
-        {
-            // It is disabled, so skip it
+        if (!$cache_enabled) {
+        // It is disabled, so skip it
             return false;
         }
 
@@ -73,16 +70,14 @@ class FeedReader
         $cache_location = storage_path($this->read_config($configuration, 'cache.location', 'rss-feeds'));
 
         // Is the last character a slash?
-        if(substr($cache_location, -1) != DIRECTORY_SEPARATOR)
-        {
-            // Add in the slash at the end
+        if (substr($cache_location, -1) != DIRECTORY_SEPARATOR) {
+        // Add in the slash at the end
             $cache_location .= DIRECTORY_SEPARATOR;
         }
 
         // Check if the folder is available
-        if(!file_exists($cache_location))
-        {
-            // It didn't, so make it
+        if (!file_exists($cache_location)) {
+        // It didn't, so make it
             mkdir($cache_location, 0777);
 
             // Also add in a .gitignore file
@@ -95,7 +90,7 @@ class FeedReader
     /**
      * Used internally in order to retrieve a sepcific value from the configuration
      * file.
-     * 
+     *
      * @param string $configuration The name of the configuration to use
      * @param string $name The name of the value in the configuration file to retrieve
      * @param mixed $default The default value
