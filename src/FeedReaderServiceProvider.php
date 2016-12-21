@@ -37,5 +37,4 @@ class FeedReaderServiceProvider extends ServiceProvider
     {
         $this->app->singleton(FeedReader::class);
     }
-
 }
